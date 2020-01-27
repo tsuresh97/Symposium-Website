@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('forestbridge.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+<?php
+$name=$_SESSION['a'];
+$name1=$_SESSION['b'];
+$count=$_SESSION['total'];
+mysql_connect("localhost","root","suresh")or die("localhost error");
+mysql_select_db("trb")or die("database error");
+
+
+$res=mysql_query("insert into data values('$name','$name1',$count,'s')");
+echo "Your Score is".$count*10;
+echo "/150"; 
+
+?>
+</body>
+</html>
+
